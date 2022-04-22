@@ -13,19 +13,16 @@ cat <<EOF | tee /etc/yum.repos.d/kubernetes.repo
 name=Kubernetes
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
 enabled=1
-gpgcheck=1
-repo_gpgcheck=1
+gpgcheck=0
+repo_gpgcheck=0
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 exclude=kubelet kubeadm kubectl
 EOF
 
-	# Set SELinux in permissive mode (effectively disabling it)
+# Set SELinux in permissive mode (effectively disabling it)
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
-# disable swap (assuming that the name is /dev/centos/swap
-sed -i 's/^\/dev\/mapper\/centos-swap/#\/dev\/mapper\/centos-swap/' /etc/fstab
-swapoff /dev/mapper/centos-swap
 
 yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
