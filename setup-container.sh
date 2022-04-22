@@ -2,7 +2,6 @@
 # script that runs 
 # https://kubernetes.io/docs/setup/production-environment/container-runtime
 
-# setting MYOS variable
 
 ##### CentOS 7 config
 echo setting up CentOS 7 with Docker 
