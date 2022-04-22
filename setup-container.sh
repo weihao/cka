@@ -13,7 +13,11 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 # verify the documentation to check if a more recent version is available
 echo install docker-ce
 yum install -y docker-ce
-[ ! -d /etc/docker ] && mkdir /etc/docker
+
+echo make docker directory
+
+
+mkdir -p /etc/docker
 echo make directory to docker service
 
 mkdir -p /etc/systemd/system/docker.service.d
