@@ -5,12 +5,6 @@
 # this script supports centos 7 and Ubuntu 20.04 only
 # run this script with sudo
 
-if ! [ $USER = root ]
-then
-	echo run this script with sudo
-	exit 3
-fi
-
 
 ##### CentOS 7 config
 echo RUNNING CENTOS CONFIG
